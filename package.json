@@ -1,5 +1,6 @@
 {
   "name": "minseobkimmd-github-io",
+  "packageManager": "pnpm@11.28.6",
   "type": "module",
   "version": "6.1.0",
   "engines": {
