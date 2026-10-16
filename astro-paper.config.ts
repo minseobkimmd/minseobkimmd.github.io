@@ -3,8 +3,8 @@ import { defineAstroPaperConfig } from "./src/types/config";
 export default defineAstroPaperConfig({
   site: {
     url: "https://minseobkimmd.github.io",
-    title: "minseobkimmd",
-    description: "정신의학 · 투자 · AI · 연구 기록",
+    title: "김민섭의 블로그",
+    description: "정신건강의학과 전문의, 이학박사",
     author: "minseobkimmd",
     profile: "https://github.com/minseobkimmd",
     ogImage: "default-og.jpg",
