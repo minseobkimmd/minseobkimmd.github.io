@@ -17,8 +17,9 @@ tags:
 - `src/content/posts/my-new-post.md` → `https://minseobkimmd.github.io/posts/my-new-post/`
 - 파일명은 영어 소문자와 하이픈(-)으로 짓는 것을 권한다.
 
-올리는 방법은 두 가지다.
+올리는 방법은 세 가지다. 편한 것을 쓰면 된다.
 
+0. **브라우저에서 (Pages CMS)** — [app.pagescms.org](https://app.pagescms.org)에 GitHub 계정으로 로그인 → 이 저장소 선택 → `글 → 새 글`에서 제목·요약·본문을 쓰고 저장. Git 지식이 전혀 필요 없고, 사진도 드래그로 첨부된다. 태그는 미리 정의된 목록(정신의학, 투자, 기술·AI, 연구, 에세이, 가이드)에서 고른다. 새 글의 파일명은 영어 소문자-하이픈으로 입력한다(예: `my-new-post`).
 1. **GitHub 웹사이트에서**: 저장소에서 `Add file → Create new file`, 경로에 `src/content/posts/파일명.md` 입력, 내용 작성 후 Commit. 끝나면 자동 배포된다.
 2. **VS Code + Git으로**: 로컬에서 파일을 만들고 `git add`, `git commit`, `git push`.
 

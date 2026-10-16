@@ -4,6 +4,11 @@
 
 Astro + [AstroPaper](https://github.com/satnaing/astro-paper) 테마, GitHub Pages 자동 배포.
 
+## 브라우저에서 글쓰기 (Pages CMS)
+
+[app.pagescms.org](https://app.pagescms.org) → GitHub 로그인 → 이 저장소 선택.
+편집 양식은 저장소 루트의 `.pages.yml`이 정의한다 (글 목록, 소개 페이지, 이미지 업로드).
+
 ## 글 쓰는 법
 
 1. `src/content/posts/` 폴더에 `파일명.md`를 만든다 (파일명 = URL).

@@ -1,0 +1,95 @@
+# Pages CMS 설정 — https://pagescms.org
+# app.pagescms.org 에서 GitHub 계정으로 로그인하면 이 양식대로 글을 쓸 수 있습니다.
+# 수정 후 저장하면 GitHub에 커밋되고, GitHub Actions가 블로그를 자동 배포합니다.
+
+media:
+  - name: images
+    label: 이미지
+    input: public/images/posts
+    output: /images/posts
+    categories: [image]
+    rename: random
+
+content:
+  - name: posts
+    label: 글
+    type: collection
+    path: src/content/posts
+    format: yaml-frontmatter
+    filename:
+      template: "{primary}.md"
+      field: create
+    view:
+      fields: [title, pubDatetime, draft]
+      primary: title
+      sort: pubDatetime
+      order: desc
+    fields:
+      - name: title
+        label: 제목
+        type: string
+        required: true
+      - name: description
+        label: 요약 (검색·공유 미리보기에 표시)
+        type: text
+        required: true
+      - name: pubDatetime
+        label: 발행 시각
+        type: date
+        required: true
+        options:
+          time: true
+          format: "yyyy-MM-dd'T'HH:mm:ssxxx"
+      - name: draft
+        label: 임시글 (체크하면 발행되지 않음)
+        type: boolean
+        default: false
+      - name: featured
+        label: 추천 글 (홈 상단에 표시)
+        type: boolean
+        default: false
+      - name: tags
+        label: 태그
+        type: select
+        options:
+          multiple: true
+          placeholder: 태그 선택
+          values:
+            - name: psychiatry
+              label: 정신의학
+            - name: investing
+              label: 투자
+            - name: technology
+              label: 기술·AI
+            - name: research
+              label: 연구
+            - name: essay
+              label: 에세이
+            - name: guide
+              label: 가이드
+      - name: body
+        label: 본문
+        type: rich-text
+        options:
+          format: markdown
+          media: images
+
+  - name: about
+    label: 소개 페이지
+    type: file
+    path: src/content/pages/about.md
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: 제목
+        type: string
+        required: true
+      - name: description
+        label: 요약
+        type: text
+      - name: body
+        label: 본문
+        type: rich-text
+        options:
+          format: markdown
+          media: images
