@@ -5,13 +5,28 @@ import config from "@/config";
 
 export const BLOG_PATH = "src/content/posts";
 
+// Pages CMS saves the date-picker value as a UTC wall-clock (e.g. "2026-10-16T19:08:00+00:00"
+// when the author meant 19:08 Korea time). Interpret naive/UTC wall-clocks as Asia/Seoul;
+// values with an explicit non-zero offset (hand-written posts) are kept as-is.
+const cmsAwareDate = z
+  .union([z.date(), z.string()])
+  .transform(v => {
+    if (v instanceof Date) return v;
+    let s = v.trim();
+    if (/(?:z|\+00:?00)$/i.test(s)) s = s.replace(/(?:z|\+00:?00)$/i, "+09:00");
+    else if (!/(?:[+-]\d{2}:?\d{2})$/i.test(s)) s = `${s}+09:00`;
+    const d = new Date(s);
+    if (Number.isNaN(d.getTime())) throw new Error(`Invalid date value: ${v}`);
+    return d;
+  });
+
 const posts = defineCollection({
   loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: `./${BLOG_PATH}` }),
   schema: ({ image }) =>
     z.object({
       author: z.string().default(config.site.author),
-      pubDatetime: z.coerce.date(),
-      modDatetime: z.coerce.date().optional().nullable(),
+      pubDatetime: cmsAwareDate,
+      modDatetime: cmsAwareDate.optional().nullable(),
       title: z.string(),
       featured: z.boolean().optional(),
       draft: z.boolean().optional(),
