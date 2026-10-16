@@ -16,9 +16,7 @@ content:
     type: collection
     path: src/content/posts
     format: yaml-frontmatter
-    filename:
-      template: "{primary}.md"
-      field: create
+    filename: "{year}-{month}-{day}-{fields.slug}.md"
     view:
       fields: [title, pubDatetime, draft]
       primary: title
@@ -29,6 +27,13 @@ content:
         label: 제목
         type: string
         required: true
+      - name: slug
+        label: "파일명 슬러그 — 블로그 주소(URL)가 됩니다. 영어 소문자-하이픈, 예: my-new-post"
+        type: string
+        required: true
+        pattern:
+          regex: "^[a-z0-9]+(-[a-z0-9]+)*$"
+          message: "영어 소문자, 숫자, 하이픈만 사용하세요 (예: my-new-post)"
       - name: description
         label: 요약 (검색·공유 미리보기에 표시)
         type: text
