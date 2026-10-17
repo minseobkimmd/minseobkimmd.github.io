@@ -54,24 +54,9 @@ content:
         type: boolean
         default: false
       - name: tags
-        label: 태그
-        type: select
-        options:
-          multiple: true
-          placeholder: 태그 선택
-          values:
-            - name: psychiatry
-              label: 정신의학
-            - name: investing
-              label: 투자
-            - name: technology
-              label: 기술·AI
-            - name: research
-              label: 연구
-            - name: essay
-              label: 에세이
-            - name: guide
-              label: 가이드
+        label: "태그 — 한글 자유 입력 (추가 버튼로 여러 개)"
+        type: string
+        list: true
       - name: body
         label: 본문
         type: rich-text

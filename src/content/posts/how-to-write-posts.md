@@ -19,7 +19,7 @@ tags:
 
 올리는 방법은 세 가지다. 편한 것을 쓰면 된다.
 
-0. **브라우저에서 (Pages CMS)** — [app.pagescms.org](https://app.pagescms.org)에 GitHub 계정으로 로그인 → 이 저장소 선택 → `글 → 새 글`에서 제목·파일명 슬러그·요약·본문을 쓰고 저장. Git 지식이 전혀 필요 없고, 사진도 드래그로 첨부된다. 파일명 슬러그는 URL이 되는 영어 소문자-하이픈(예: `my-new-post`)이며, 실제 파일명은 `2026-10-16-my-new-post.md`처럼 자동 생성된다. 태그는 미리 정의된 목록(정신의학, 투자, 기술·AI, 연구, 에세이, 가이드)에서 고른다.
+0. **브라우저에서 (Pages CMS)** — [app.pagescms.org](https://app.pagescms.org)에 GitHub 계정으로 로그인 → 이 저장소 선택 → `글 → 새 글`에서 제목·파일명 슬러그·요약·본문을 쓰고 저장. Git 지식이 전혀 필요 없고, 사진도 드래그로 첨부된다. 파일명 슬러그는 URL이 되는 영어 소문자-하이픈(예: `my-new-post`)이며, 실제 파일명은 `2026-10-16-my-new-post.md`처럼 자동 생성된다. 태그는 한글로 자유롭게 입력한다 (예: 우울증, 항우울제 — 태그 페이지 주소도 한글로 생성됨).
 1. **GitHub 웹사이트에서**: 저장소에서 `Add file → Create new file`, 경로에 `src/content/posts/파일명.md` 입력, 내용 작성 후 Commit. 끝나면 자동 배포된다.
 2. **VS Code + Git으로**: 로컬에서 파일을 만들고 `git add`, `git commit`, `git push`.
 
@@ -46,7 +46,7 @@ tags:
 | `title` | O | 글 제목 |
 | `description` | O | 요약 (SEO·미리보기용) |
 | `pubDatetime` | O | 게시 시각. 미래 시각을 넣으면 **예약 발행** |
-| `tags` | X | 태그 목록. URL이 되므로 영어 소문자 권장 |
+| `tags` | X | 태그 목록. 한글 자유 입력 가능 — 태그 페이지 주소도 한글로 생성됨 |
 | `draft` | X | `true`면 빌드에서 제외 |
 | `featured` | X | 홈 상단 '추천 글' 표시 |
 
